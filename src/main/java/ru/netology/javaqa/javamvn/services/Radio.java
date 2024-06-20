@@ -33,6 +33,8 @@ public class Radio {
         }
     }
 
+    // метод по установке текущей громкости в пределах от 0 до 100 (если выше/ниже, то отсанови метод,
+// иначе устанавливай ту, которую просят - ньюКаррентВольюм)
     public void setCurrentVolume(int newCurrentVolume) {
         if (newCurrentVolume > 100) {
             return;
