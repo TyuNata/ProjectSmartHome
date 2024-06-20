@@ -1,4 +1,4 @@
-package ru.netology.javaqa;
+package ru.netology.javaqa.javamvn.services;
 
 public class Radio {
     public int currentRadioStation; // текущая радиостанция
