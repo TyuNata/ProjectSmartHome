@@ -1,5 +1,4 @@
 package ru.netology.javaqa.javamvn.services;
-
 public class Radio {
     private int currentRadioStation; // текущая радиостанция
     private int currentVolume; // текущая громкость
