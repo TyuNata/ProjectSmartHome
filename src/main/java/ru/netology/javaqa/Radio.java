@@ -32,14 +32,16 @@ public class Radio {
             currentVolume = currentVolume - 1; // то при уменьшении громкости, интервал -1
         }
     }
-    // При нажатии увеличение громкости более 100 или уменьшении громкости менее 0
-    public void setCurrentVolume(int newCurrentVolume) { // метод по установки текущей громкости
-        if (newCurrentVolume > 100) { // если текущая громкость > 100, то останови метод.
+
+    public void setCurrentVolume(int newCurrentVolume) {
+        if (newCurrentVolume > 100) {
             return;
         }
-        if (newCurrentVolume < 0) { // если текущая громкость < 0, то останови метод.
+        if (newCurrentVolume < 0) {
             return;
         }
+        currentVolume = newCurrentVolume;
+    }
         // Если текущая радиостанция 9 и клиент нажал на кнопку next (=вызвал одноимённый метод next, с англ. — следующая)
         // на пульте, то текущей должна стать нулевая.
         // В остальных случаях при нажатии на эту же кнопку радио переключается просто на следующую станцию.
@@ -58,4 +60,3 @@ public class Radio {
             }
         }
     }
-}
