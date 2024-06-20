@@ -21,7 +21,6 @@ public class Radio {
         }
         currentRadioStation = newCurrentRadioStation; // в противном случае установи ту станцию, какую просят.
     }
-
     // метод по установке текущей громкости в пределах от 0 до 100 (если выше/ниже, то отсанови метод,
     // иначе устанавливай ту, которую просят - ньюКаррентВольюм)
     public void setCurrentVolume(int newCurrentVolume) {
