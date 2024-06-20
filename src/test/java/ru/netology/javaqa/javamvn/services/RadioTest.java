@@ -2,7 +2,7 @@ package ru.netology.javaqa.javamvn.services;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import ru.netology.javaqa.Radio;
+
 
 public class RadioTest {
 
