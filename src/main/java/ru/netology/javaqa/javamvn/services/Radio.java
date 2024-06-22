@@ -3,6 +3,29 @@ package ru.netology.javaqa.javamvn.services;
 public class Radio {
     private int currentRadioStation; // текущая радиостанция
     private int currentVolume; // текущая громкость
+    private int numberOfStation;
+
+    public Radio(int stations) {
+        this.numberOfStation = stations;
+    }
+
+    public Radio() {
+        this(10);
+    }
+
+    public int getNumberOfStation() {
+        return numberOfStation;
+    }
+
+    public void setNumberOfStation(int newNumberOfStation) {
+        if (newNumberOfStation >= 10) {
+            return;
+        }
+        if (newNumberOfStation < 0) {
+            return;
+        }
+        numberOfStation = newNumberOfStation;
+    }
 
     public int getCurrentVolume() { //дай текущую громкость
         return currentVolume; // верни текущую громкость
