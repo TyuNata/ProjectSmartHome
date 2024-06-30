@@ -3,28 +3,17 @@ package ru.netology.javaqa.javamvn.services;
 public class Radio {
     private int currentRadioStation; // текущая радиостанция
     private int currentVolume; // текущая громкость
-    private int numberOfStation;
-
-    public Radio(int stations) {
-        this.numberOfStation = stations;
-    }
+    private int maxStation; // кол-во радиостанций
 
     public Radio() {
-        this(10);
+        this.maxStation = 9; // В конструкторе значение переменной
+        // устанавливается равным 9 (максимальное кол-во станций)
+
     }
 
-    public int getNumberOfStation() {
-        return numberOfStation;
-    }
+    public Radio(int stationsCount) { // конструктор с переменной = кол-во станций минус 1
+        this.maxStation = stationsCount - 1;
 
-    public void setNumberOfStation(int newNumberOfStation) {
-        if (newNumberOfStation >= 10) {
-            return;
-        }
-        if (newNumberOfStation < 0) {
-            return;
-        }
-        numberOfStation = newNumberOfStation;
     }
 
     public int getCurrentVolume() { //дай текущую громкость
@@ -50,14 +39,14 @@ public class Radio {
     // Номер текущей радиостанции может принимать значения только в пределах от 0 до 9.
     // Клиент должен иметь возможность выставлять номер радиостанции через прямое указание её номера.
     // Для этого подойдёт один обычный метод-сеттер с проверкой на допустимость номера станции.
-    public void setCurrentRadioStation(int newCurrentRadioStation) { // метод по установки текущей станции
-        if (newCurrentRadioStation > 9) { // если текущая станция > 9, то останови метод.
+    public void setCurrentRadioStation(int currentRadioStation) { // метод по установки текущей станции
+        if (currentRadioStation > maxStation) { // если текущая станция > 9, то останови метод.
             return;
         }
-        if (newCurrentRadioStation < 0) { // если текущая станция < 0, то останови метод.
+        if (currentRadioStation < 0) { // если текущая станция < 0, то останови метод.
             return;
         }
-        currentRadioStation = newCurrentRadioStation; // в противном случае установи ту станцию, какую просят.
+        this.currentRadioStation = currentRadioStation; // в противном случае установи ту станцию, какую просят.
     }
 
     public void volumeUp() { // метод по увеличению громкости
@@ -76,7 +65,7 @@ public class Radio {
     // на пульте, то текущей должна стать нулевая.
     // В остальных случаях при нажатии на эту же кнопку радио переключается просто на следующую станцию.
     public void next() { // метод по установке станции при нажатии "следующая"
-        if (currentRadioStation < 9) { // если текущая станция меньше 9
+        if (currentRadioStation < maxStation) { // если текущая станция меньше 9
             currentRadioStation = currentRadioStation + 1; // то при нажатии "следующая"- № станции увеличивается с интервалом 1
         } else {
             currentRadioStation = 0; // в противном случае - был на 9, нажал "следующая", текущая станция становится 0
@@ -87,7 +76,7 @@ public class Radio {
         if (currentRadioStation > 0) { // если текущая станция > 0
             currentRadioStation = currentRadioStation - 1; // то при нажатии "предыдущая"-№ станции уменьшается с интервалом 1
         } else {
-            currentRadioStation = 9; // в противном случае - был на № 0, нажал "предыдущая", переходит на № 9
+            currentRadioStation = maxStation; // в противном случае - был на № 0, нажал "предыдущая", переходит на № 9
         }
     }
 }

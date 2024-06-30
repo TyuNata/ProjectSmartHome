@@ -15,6 +15,7 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
+
     @Test
     public void shouldUnCorrectCurrentRadioStation() {
         Radio radio = new Radio();
@@ -201,45 +202,66 @@ public class RadioTest {
     @Test
     public void shouldNumberOfStation11() {
         Radio radio = new Radio();
-        radio.setNumberOfStation(11);
-        int expected = 10;
-        int actual = radio.getNumberOfStation();
+        radio.setCurrentRadioStation(11);
+        int expected = 0;
+        int actual = radio.getCurrentRadioStation();
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void shouldNumberOfStation10() {
         Radio radio = new Radio();
-        radio.setNumberOfStation(10);
-        int expected = 10;
-        int actual = radio.getNumberOfStation();
+        radio.setCurrentRadioStation(10);
+        int expected = 0;
+        int actual = radio.getCurrentRadioStation();
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void shouldNumberOfStation100() {
         Radio radio = new Radio();
-        radio.setNumberOfStation(100);
-        int expected = 10;
-        int actual = radio.getNumberOfStation();
+        radio.setCurrentRadioStation(100);
+        int expected = 0;
+        int actual = radio.getCurrentRadioStation();
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void shouldNumberOfStationNegative() {
         Radio radio = new Radio();
-        radio.setNumberOfStation(-25);
-        int expected = 10;
-        int actual = radio.getNumberOfStation();
+        radio.setCurrentRadioStation(-25);
+        int expected = 0;
+        int actual = radio.getCurrentRadioStation();
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void shouldNumberOfStationNull() {
         Radio radio = new Radio();
-        radio.setNumberOfStation(0);
+        radio.setCurrentRadioStation(0);
         int expected = 0;
-        int actual = radio.getNumberOfStation();
+        int actual = radio.getCurrentRadioStation();
         Assertions.assertEquals(expected, actual);
     }
+
+    @Test
+    public void testStations20() { // тест на проверку
+
+        Radio radio = new Radio(20);
+        radio.setCurrentRadioStation(15);
+        int expected = 15;
+        int actual = radio.getCurrentRadioStation();
+    }
+
+    @Test
+    public void testStations45() {
+
+        Radio radio = new Radio(45);
+        radio.setCurrentRadioStation(45);
+        int expected = 45;
+        int actual = radio.getCurrentRadioStation();
+    }
 }
+
+
+
